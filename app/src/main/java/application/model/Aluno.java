@@ -1,11 +1,24 @@
 package application.model;
 
+import java.util.ArrayList;
+import java.util.List;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="alunos")
 public class Aluno {
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     private String nome;
     private int idade;
     private String curso;
+
 
 public Long getId() {
     return id;
