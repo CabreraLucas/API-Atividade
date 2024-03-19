@@ -1,9 +1,9 @@
 #EDITAR
-PUT https://8080-cabreraluca-apiatividad-7z6bwqxrzuy.ws-us110.gitpod.io/alunos/1
+PUT https://8080-cabreraluca-apiatividad-1t9yd6p5e1w.ws-us110.gitpod.io/alunos/2
 Content-Type: application/json
 
 {
-    "nome": "João",
+    "nome": "Maria",
     "idade": 22,
-    "curso": "Mecanização"
+    "curso": "BigData"
 }
