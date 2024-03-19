@@ -1,8 +1,8 @@
-PUT https://8080-cabreraluca-apiatividad-zgv9bspdbyr.ws-us110.gitpod.io/aluno
+PUT https://8080-cabreraluca-apiatividad-7z6bwqxrzuy.ws-us110.gitpod.io/alunos/1
 Content-Type: application/json
 
 {
-    "nome": "Lucas",
-    "idade": 26,
-    "curso": "BigData"
+    "nome": "João",
+    "idade": 22,
+    "curso": "Mecanização"
 }

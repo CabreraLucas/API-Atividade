@@ -1,8 +1,8 @@
-POST https://8080-cabreraluca-apiatividad-zgv9bspdbyr.ws-us110.gitpod.io/alunos
+POST https://8080-cabreraluca-apiatividad-7z6bwqxrzuy.ws-us110.gitpod.io/alunos
 Content-Type: application/json
 
 {
-    "nome": "Lucas",
+    "nome": "Neusa",
     "idade": 26,
     "curso": "BigData"
 }

@@ -3,6 +3,7 @@ package application.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import application.model.Aluno;
-import application.repository.AlunoRepository;
+import application.repositories.AlunoRepository;
 
 @RestController
 public class AlunoController {
@@ -19,21 +20,32 @@ public class AlunoController {
     private AlunoRepository alunoRepo;
     
     @PostMapping("/alunos")
-    public Aluno post(RequestBody Aluno aluno){
+    public Aluno post(@RequestBody Aluno aluno){
         return alunoRepo.save(aluno);
     }
 
-    @GetMapping("/alunos")
-    public List<Aluno> alunos(){
-        return(List<Aluno>) alunoRepo.findAll();
+    @GetMapping("/alunos/{id}")
+    public Aluno getOne(@PathVariable Long id){
+        return alunoRepo.findById(id).get();
     }
 
-    @SuppressWarnings("null")
-    @PutMapping("/diretores/{id}")
-    public Aluno putAluno(@RequestBody Aluno aluno, @PathVariable Long id){
+    @GetMapping("/alunos")
+    public List<Aluno> getAll(){
+        return (List<Aluno>) alunoRepo.findAll();
+    }
+
+    @PutMapping("/alunos/{id}")
+    public Aluno put(@RequestBody Aluno aluno, @PathVariable Long id){
         Aluno resposta = alunoRepo.findById(id).get();
         resposta.setNome(aluno.getNome());
+        resposta.setIdade(aluno.getIdade());
+        resposta.setCurso(aluno.getCurso());
 
         return alunoRepo.save(resposta);
+    }
+
+    @DeleteMapping("alunos/{id}")
+    public void delete(@PathVariable Long id){
+        alunoRepo.deleteById(id);
     }
 }
